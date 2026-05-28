@@ -10,11 +10,11 @@ interface FolderSectionProps {
   children: ReactNode;
 }
 
-export function FolderSection({ id, title, color, tabColor, zIndex, stickyTop, children }: FolderSectionProps) {
+export function FolderSection({ id, title, color, tabColor, zIndex, stickyTop: _stickyTop, children }: FolderSectionProps) {
   return (
     <div id={id} className={`relative ${zIndex} mb-8`}>
-      <div className={`sticky ${stickyTop} pt-4 z-20`}>
-        {/* Tab wrapper to hide bottom border overlap */}
+      {/* Tab — non-sticky so it doesn't float over modals/content */}
+      <div className="pt-4">
         <div className={`inline-block px-4 py-2 sm:px-8 sm:py-3 ${tabColor} border-4 border-black border-b-0 rounded-t-2xl font-bold font-paytone text-base sm:text-xl uppercase relative top-[4px] shadow-[inset_2px_2px_0px_rgba(255,255,255,0.4)]`}>
           <span className="text-black tracking-wide drop-shadow-[1px_1px_0px_rgba(255,255,255,0.5)]">{title}</span>
         </div>
