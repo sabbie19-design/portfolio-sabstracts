@@ -32,6 +32,21 @@ export interface PortfolioProject {
 
 const websiteProjects: PortfolioProject[] = [
   {
+    id: 'mathpulse-ai',
+    title: 'MathPulse AI',
+    description: 'An AI-powered math learning assistant deployed on Hugging Face Spaces, helping students solve and understand math problems interactively.',
+    role: 'Developer & AI Engineer',
+    category: 'Website Projects',
+    tags: ['Python', 'Hugging Face', 'AI', 'Gradio', 'Machine Learning'],
+    year: '2025',
+    link: 'https://huggingface.co/spaces/Deign86/mathpulse-ai',
+    thumbnail: '/assets/projects/mathpulse-ai/thumbnail.png',
+    images: [
+      '/assets/projects/mathpulse-ai/thumbnail.png',
+    ],
+    icon: '🧠',
+  },
+  {
     id: 'librowse',
     title: 'Librowse',
     description: 'A beautiful, highly interactive digital library platform and community portal for book enthusiasts.',
@@ -118,21 +133,6 @@ const websiteProjects: PortfolioProject[] = [
       '/assets/projects/arta css/SECTION 5.png',
     ],
     icon: '🎨',
-  },
-  {
-    id: 'mathpulse-ai',
-    title: 'MathPulse AI',
-    description: 'An AI-powered math learning assistant deployed on Hugging Face Spaces, helping students solve and understand math problems interactively.',
-    role: 'Developer & AI Engineer',
-    category: 'Website Projects',
-    tags: ['Python', 'Hugging Face', 'AI', 'Gradio', 'Machine Learning'],
-    year: '2025',
-    link: 'https://huggingface.co/spaces/Deign86/mathpulse-ai',
-    thumbnail: '/assets/projects/mathpulse-ai/thumbnail.png',
-    images: [
-      '/assets/projects/mathpulse-ai/thumbnail.png',
-    ],
-    icon: '🧠',
   },
 ];
 

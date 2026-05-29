@@ -45,11 +45,11 @@ const CAPABILITIES = [
   },
 ];
 
-const FEATURED_PROJECT_IDS = ['librowse', 'its-our-studio', 'mathpulse-ai'];
+const FEATURED_PROJECT_IDS = ['mathpulse-ai', 'librowse', 'its-our-studio'];
 
 // Projects to showcase in the hero carousel
 const CAROUSEL_PROJECTS = ALL_PROJECTS.filter(p =>
-  ['librowse', 'its-our-studio', 'arta-css', 'mathpulse-ai', 'trace-of-mango', 'cyndikato-rulebook', 'flipbook-ttrpg'].includes(p.id)
+  ['mathpulse-ai', 'librowse', 'its-our-studio', 'arta-css', 'trace-of-mango', 'cyndikato-rulebook', 'flipbook-ttrpg'].includes(p.id)
   && (p.thumbnail || p.images.length > 0)
 );
 
