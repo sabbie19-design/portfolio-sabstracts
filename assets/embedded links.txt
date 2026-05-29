@@ -1,0 +1,27 @@
+motion graphics embedded youtube link
+
+boy animation                            src="https://www.youtube.com/embed/iQ1K4wyLM5U?autoplay=1&mute=1&loop=1&playlist=iQ1K4wyLM5U&controls=0&showinfo=0&rel=0&modestbranding=1"
+
+
+text animation                          src="https://www.youtube.com/embed/ZVOHSDCpDzk?autoplay=1&mute=1&loop=1&playlist=ZVOHSDCpDzk&controls=0&showinfo=0&rel=0&modestbranding=1"
+
+
+girl animation
+                            src="https://www.youtube.com/embed/Tn-KmFhRdao?autoplay=1&mute=1&loop=1&playlist=Tn-KmFhRdao&controls=0&showinfo=0&rel=0&modestbranding=1"
+
+solar system animation
+                            src="https://www.youtube.com/embed/73QPbNuhGUU?autoplay=1&mute=1&loop=1&playlist=73QPbNuhGUU&controls=0&showinfo=0&rel=0&modestbranding=1"
+
+trace of mango animation
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OOzlys6PXHY?si=_y1gVLdf-nTdWf6v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+taskly prototype
+                            src="https://www.youtube.com/embed/oRhv4HNa5Hc?autoplay=1&mute=1&loop=1&playlist=oRhv4HNa5Hc&controls=0&showinfo=0&rel=0&modestbranding=1"
+
+
+kiddie coin
+                            src="https://www.youtube.com/embed/6ZDEWDWmg6I?autoplay=1&mute=1&loop=1&playlist=6ZDEWDWmg6I&controls=0&showinfo=0&rel=0&modestbranding=1"
+
+
+

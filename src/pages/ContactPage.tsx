@@ -11,7 +11,7 @@ type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 function SocialBadge({ link, text, color, textColor }: { link: string; text: string; color: string; textColor: string }) {
   return (
-    <a href={link} className={`px-6 py-2 ${color} ${textColor} font-pixel text-xl uppercase tracking-widest border-4 border-black shadow-brutal hover:translate-y-1 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] transition-all inline-block`}>
+    <a href={link} target="_blank" rel="noopener noreferrer" className={`px-6 py-2 ${color} ${textColor} font-pixel text-xl uppercase tracking-widest border-4 border-black shadow-brutal hover:translate-y-1 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] transition-all inline-block no-underline`}>
       {text}
     </a>
   );
@@ -153,9 +153,8 @@ export default function ContactPage() {
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-6 w-full">
-            <SocialBadge link="#" text="GitHub" color="bg-[#000]" textColor="text-white" />
-            <SocialBadge link="#" text="LinkedIn" color="bg-[#0A66C2]" textColor="text-white" />
-            <SocialBadge link="#" text="Twitter" color="bg-[#1DA1F2]" textColor="text-white" />
+            <SocialBadge link="https://github.com/sabbie19-design" text="GitHub" color="bg-[#000]" textColor="text-white" />
+            <SocialBadge link="https://www.linkedin.com/in/lorraine-isabel-cabigon-70229a2aa" text="LinkedIn" color="bg-[#0A66C2]" textColor="text-white" />
           </div>
 
           <div className="mt-8 flex gap-4 w-full justify-center lg:justify-start overflow-hidden flex-wrap">

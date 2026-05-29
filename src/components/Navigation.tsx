@@ -22,7 +22,7 @@ export function Navigation() {
     <nav className="flex items-end gap-[2px] px-4 sm:px-8 max-w-7xl mx-auto pt-4" aria-label="Main navigation">
       {/* Brand / Logo — sits before the tabs */}
       <div className="hidden sm:flex items-center mr-4 mb-[4px]">
-        <span className="font-paytone text-lg tracking-widest star-stroke select-none">SAB</span>
+        <span className="font-paytone text-lg tracking-widest star-stroke select-none">SABSTRACTS</span>
       </div>
 
       {NAV_ITEMS.map((item) => {
@@ -60,6 +60,30 @@ export function Navigation() {
           </NavLink>
         );
       })}
+
+      {/* CV Button */}
+      <a
+        href="/assets/Lorraine_Isabel_Cabigon_CV.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline ml-auto"
+      >
+        <div
+          className="
+            unified-tab font-paytone text-[10px] sm:text-xs uppercase tracking-wider
+            px-3 py-2 sm:px-5 sm:py-2.5
+            border-4 border-black rounded-t-lg
+            transition-all duration-150 select-none
+            unified-tab--inactive translate-y-[8px] hover:translate-y-[6px]
+          "
+          style={{
+            backgroundColor: '#FFE4A0',
+            boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.3), inset -1px -1px 0px rgba(0,0,0,0.2), 0 2px 0 rgba(0,0,0,0.3)',
+          }}
+        >
+          <span className="text-black/70 whitespace-nowrap">📄 VIEW CV</span>
+        </div>
+      </a>
     </nav>
   );
 }

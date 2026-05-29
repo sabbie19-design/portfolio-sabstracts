@@ -13,6 +13,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const [detailOpen, setDetailOpen] = useState(false);
 
   const isGallery = project.images.length > 1;
+  const hasVideo = !!project.videoEmbed;
+  const hasFlipbook = !!project.flipbookEmbed;
   const coverImage = project.thumbnail || project.images[0];
 
   return (
@@ -31,38 +33,61 @@ export function ProjectCard({ project }: ProjectCardProps) {
           icon={project.icon}
           className="h-full hover:-translate-y-2 transition-transform"
         >
-          {/* Image Container with optional Folder Icon overlay */}
+          {/* Image/Video/Flipbook Container */}
           <div
             className="relative h-44 border-4 border-black mb-4 overflow-hidden shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)] cursor-pointer group"
-            onClick={() => isGallery ? setGalleryOpen(true) : setDetailOpen(true)}
+            onClick={() => !hasVideo && !hasFlipbook && (isGallery ? setGalleryOpen(true) : setDetailOpen(true))}
           >
-            <img
-              src={coverImage}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform group-hover:scale-105"
-              loading="lazy"
-            />
+            {hasVideo ? (
+              <iframe
+                src={project.videoEmbed}
+                title={project.title}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : hasFlipbook ? (
+              <iframe
+                src={project.flipbookEmbed}
+                title={project.title}
+                className="w-full h-full border-0"
+                allowFullScreen
+              />
+            ) : coverImage ? (
+              <>
+                <img
+                  src={coverImage}
+                  alt={project.title}
+                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                  loading="lazy"
+                />
 
-            {/* Retro Folder Icon Overlay for galleries */}
-            {isGallery && (
-              <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-[#C0C0C0] border-2 border-black px-2 py-1 shadow-[inset_1px_1px_0px_rgba(255,255,255,1),inset_-1px_-1px_0px_rgba(0,0,0,0.4)] group-hover:bg-[#FFD166] transition-colors">
-                {/* Pixel folder icon SVG */}
-                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" className="shrink-0">
-                  <rect x="0" y="3" width="20" height="13" fill="#FFD700" stroke="black" strokeWidth="1.5"/>
-                  <rect x="0" y="1" width="8" height="4" fill="#FFD700" stroke="black" strokeWidth="1.5"/>
-                  <rect x="1" y="5" width="18" height="10" fill="#FFEC8B" stroke="black" strokeWidth="0.5"/>
-                  <line x1="2" y1="7" x2="18" y2="7" stroke="#DAA520" strokeWidth="0.5"/>
-                </svg>
-                <span className="font-pixel text-xs text-black leading-none">{project.images.length}</span>
+                {/* Retro Folder Icon Overlay for galleries */}
+                {isGallery && (
+                  <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-[#C0C0C0] border-2 border-black px-2 py-1 shadow-[inset_1px_1px_0px_rgba(255,255,255,1),inset_-1px_-1px_0px_rgba(0,0,0,0.4)] group-hover:bg-[#FFD166] transition-colors">
+                    {/* Pixel folder icon SVG */}
+                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" className="shrink-0">
+                      <rect x="0" y="3" width="20" height="13" fill="#FFD700" stroke="black" strokeWidth="1.5"/>
+                      <rect x="0" y="1" width="8" height="4" fill="#FFD700" stroke="black" strokeWidth="1.5"/>
+                      <rect x="1" y="5" width="18" height="10" fill="#FFEC8B" stroke="black" strokeWidth="0.5"/>
+                      <line x1="2" y1="7" x2="18" y2="7" stroke="#DAA520" strokeWidth="0.5"/>
+                    </svg>
+                    <span className="font-pixel text-xs text-black leading-none">{project.images.length}</span>
+                  </div>
+                )}
+
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                  <span className="font-pixel text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] bg-black/60 px-3 py-1 border-2 border-white/50">
+                    {isGallery ? '📂 OPEN GALLERY' : '🔍 VIEW'}
+                  </span>
+                </div>
+              </>
+            ) : (
+              <div className="w-full h-full bg-gray-100 flex items-center justify-center font-pixel text-gray-500 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:10px_10px]">
+                [NO PREVIEW]
               </div>
             )}
-
-            {/* Hover overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-              <span className="font-pixel text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] bg-black/60 px-3 py-1 border-2 border-white/50">
-                {isGallery ? '📂 OPEN GALLERY' : '🔍 VIEW'}
-              </span>
-            </div>
           </div>
 
           {/* Title */}
@@ -81,8 +106,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {/* Description */}
           <p className="font-comic text-base font-bold line-clamp-2 leading-tight text-gray-800">{project.description}</p>
 
-          {/* Role badge */}
-          <div className="mt-3 mb-2">
+          {/* Role badge — always visible */}
+          <div className="mt-3">
             <span className="font-pixel text-xs uppercase px-2 py-1 bg-[#D4C4FF] border-2 border-black shadow-[1px_1px_0_0_rgba(0,0,0,1)] inline-block">
               ⚡ {project.role}
             </span>
@@ -147,23 +172,44 @@ export function ProjectCard({ project }: ProjectCardProps) {
           >
             <WindowModal title={`${project.title}.exe`} barColor="bg-[#8CE0D1]" icon="📁">
               <div className="flex flex-col gap-5 p-2 sm:p-6">
-                {/* Cover image */}
-                <div
-                  className="w-full h-48 sm:h-72 border-4 border-black overflow-hidden shadow-brutal relative cursor-pointer"
-                  onClick={() => { setDetailOpen(false); setGalleryOpen(true); }}
-                >
-                  <img src={coverImage} alt={project.title} className="w-full h-full object-cover" />
-                  {isGallery && (
-                    <div className="absolute bottom-3 right-3 flex items-center gap-2 bg-[#C0C0C0] border-2 border-black px-3 py-1 shadow-[inset_1px_1px_0px_rgba(255,255,255,1)]">
-                      <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-                        <rect x="0" y="3" width="20" height="13" fill="#FFD700" stroke="black" strokeWidth="1.5"/>
-                        <rect x="0" y="1" width="8" height="4" fill="#FFD700" stroke="black" strokeWidth="1.5"/>
-                        <rect x="1" y="5" width="18" height="10" fill="#FFEC8B" stroke="black" strokeWidth="0.5"/>
-                      </svg>
-                      <span className="font-pixel text-sm">{project.images.length} images — click to browse</span>
-                    </div>
-                  )}
-                </div>
+                {/* Cover image, video, or flipbook */}
+                {hasVideo ? (
+                  <div className="w-full aspect-video border-4 border-black overflow-hidden shadow-brutal">
+                    <iframe
+                      src={project.videoEmbed}
+                      title={project.title}
+                      className="w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : hasFlipbook ? (
+                  <div className="w-full border-4 border-black overflow-hidden shadow-brutal" style={{ position: 'relative', paddingTop: 'max(60%,324px)' }}>
+                    <iframe
+                      src={project.flipbookEmbed}
+                      title={project.title}
+                      className="absolute inset-0 w-full h-full border-0"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="w-full h-48 sm:h-72 border-4 border-black overflow-hidden shadow-brutal relative cursor-pointer"
+                    onClick={() => { setDetailOpen(false); setGalleryOpen(true); }}
+                  >
+                    <img src={coverImage} alt={project.title} className="w-full h-full object-contain" />
+                    {isGallery && (
+                      <div className="absolute bottom-3 right-3 flex items-center gap-2 bg-[#C0C0C0] border-2 border-black px-3 py-1 shadow-[inset_1px_1px_0px_rgba(255,255,255,1)]">
+                        <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
+                          <rect x="0" y="3" width="20" height="13" fill="#FFD700" stroke="black" strokeWidth="1.5"/>
+                          <rect x="0" y="1" width="8" height="4" fill="#FFD700" stroke="black" strokeWidth="1.5"/>
+                          <rect x="1" y="5" width="18" height="10" fill="#FFEC8B" stroke="black" strokeWidth="0.5"/>
+                        </svg>
+                        <span className="font-pixel text-sm">{project.images.length} images — click to browse</span>
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {/* Title & Year */}
                 <div>

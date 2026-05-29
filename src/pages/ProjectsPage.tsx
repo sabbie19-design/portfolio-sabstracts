@@ -77,6 +77,26 @@ const CATEGORY_PIXEL_ICONS: Record<Category, ReactNode> = {
       <rect x="7" y="8" width="2" height="2" fill="currentColor"/>
     </svg>
   ),
+  'Prototyping': (
+    <svg viewBox="0 0 16 16" className="w-3.5 h-3.5" style={{ imageRendering: 'pixelated' }}>
+      <rect x="2" y="2" width="12" height="12" fill="currentColor"/>
+      <rect x="3" y="3" width="10" height="10" fill="#FFF"/>
+      <rect x="5" y="5" width="3" height="3" fill="currentColor"/>
+      <rect x="9" y="5" width="3" height="1" fill="currentColor"/>
+      <rect x="9" y="7" width="2" height="1" fill="currentColor"/>
+      <rect x="5" y="9" width="7" height="1" fill="currentColor"/>
+      <rect x="5" y="11" width="5" height="1" fill="currentColor"/>
+    </svg>
+  ),
+  'Android App': (
+    <svg viewBox="0 0 16 16" className="w-3.5 h-3.5" style={{ imageRendering: 'pixelated' }}>
+      <rect x="4" y="1" width="8" height="14" fill="currentColor"/>
+      <rect x="5" y="2" width="6" height="10" fill="#FFF"/>
+      <rect x="7" y="13" width="2" height="1" fill="#FFF"/>
+      <rect x="5" y="0" width="2" height="1" fill="currentColor"/>
+      <rect x="9" y="0" width="2" height="1" fill="currentColor"/>
+    </svg>
+  ),
 };
 
 export default function ProjectsPage() {

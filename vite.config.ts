@@ -17,6 +17,7 @@ function getMimeType(filePath: string): string {
     '.ico': 'image/x-icon',
     '.txt': 'text/plain',
     '.json': 'application/json',
+    '.pdf': 'application/pdf',
   };
   return mimeMap[ext] || 'application/octet-stream';
 }

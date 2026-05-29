@@ -24,6 +24,8 @@ export interface PortfolioProject {
   images: string[];        // relative paths from public root
   thumbnail?: string;      // preferred cover image
   icon: string;            // emoji icon for the card
+  videoEmbed?: string;     // YouTube embed URL for motion graphics / prototypes
+  flipbookEmbed?: string;  // FlipHTML5 embed URL for flipbooks / rulebooks
 }
 
 // ─── WEBSITE PROJECTS (assets/projects/) ────────────────────────────────────
@@ -34,7 +36,7 @@ const websiteProjects: PortfolioProject[] = [
     title: 'Librowse',
     description: 'A beautiful, highly interactive digital library platform and community portal for book enthusiasts.',
     longDescription: 'Librowse is a premium side project designed to showcase high-fidelity interfaces and interactive user flows. It features real-time chat modals, beautiful reviews, detailed books lists, administrative monitoring dashboards, and seamless profile/settings controls.',
-    role: 'Full Stack Developer & UI Designer',
+    role: 'Frontend Developer, Project Manager & QA Tester',
     category: 'Website Projects',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Framer Motion'],
     year: '2024',
@@ -66,7 +68,7 @@ const websiteProjects: PortfolioProject[] = [
     title: "It's Our Studio",
     description: 'A full-featured photography studio platform with admin dashboard, booking system, and gallery management.',
     longDescription: 'A comprehensive studio management platform featuring a public-facing website with gallery, packages, testimonials, and contact sections, plus a full admin dashboard with analytics, bookings, CMS, feedback, and reports management.',
-    role: 'Full Stack Developer & UI/UX Designer',
+    role: 'Frontend Developer & UI/UX Designer',
     category: 'Website Projects',
     tags: ['React', 'Tailwind', 'Node.js', 'Dashboard'],
     year: '2024',
@@ -95,11 +97,11 @@ const websiteProjects: PortfolioProject[] = [
   },
   {
     id: 'arta-css',
-    title: 'ARTA CSS',
-    description: 'A multi-section responsive website showcasing modern CSS techniques and layout mastery.',
+    title: 'ARTA',
+    description: 'A multi-section responsive mobile application showcasing modern Flutter UI techniques and layout mastery.',
     role: 'Frontend Developer',
     category: 'Website Projects',
-    tags: ['HTML', 'CSS', 'Responsive Design'],
+    tags: ['Flutter', 'Dart', 'Responsive Design'],
     thumbnail: '/assets/projects/arta css/LANDING PAGE (USER-SIDE).png',
     images: [
       '/assets/projects/arta css/LANDING PAGE (USER-SIDE).png',
@@ -117,6 +119,21 @@ const websiteProjects: PortfolioProject[] = [
     ],
     icon: '🎨',
   },
+  {
+    id: 'mathpulse-ai',
+    title: 'MathPulse AI',
+    description: 'An AI-powered math learning assistant deployed on Hugging Face Spaces, helping students solve and understand math problems interactively.',
+    role: 'Developer & AI Engineer',
+    category: 'Website Projects',
+    tags: ['Python', 'Hugging Face', 'AI', 'Gradio', 'Machine Learning'],
+    year: '2025',
+    link: 'https://huggingface.co/spaces/Deign86/mathpulse-ai',
+    thumbnail: '/assets/projects/mathpulse-ai/thumbnail.png',
+    images: [
+      '/assets/projects/mathpulse-ai/thumbnail.png',
+    ],
+    icon: '🧠',
+  },
 ];
 
 // ─── GAME DESIGN (assets/game design assets/) ───────────────────────────────
@@ -125,7 +142,7 @@ const gameDesignProjects: PortfolioProject[] = [
   {
     id: 'cyndikato-cards',
     title: 'Cyndikato Card Game',
-    description: 'Character card designs for a tabletop horror card game inspired by Dead by Daylight.',
+    description: 'Card prototype designs for a tabletop politics card game.',
     role: 'Illustrator & Game Designer',
     category: 'Game Design',
     tags: ['Illustrator', 'Game Design', 'Print'],
@@ -133,15 +150,93 @@ const gameDesignProjects: PortfolioProject[] = [
       '/assets/game design assets/Revised Card Prototype.png',
       '/assets/game design assets/Revised Card Prototype (3).png',
       '/assets/game design assets/Revised Card Prototype (6).png',
-      '/assets/game design assets/HILLBILLY.png',
-      '/assets/game design assets/HUNTRESS.png',
-      '/assets/game design assets/NURSE.png',
-      '/assets/game design assets/THE-HAG.png',
-      '/assets/game design assets/TRAPPER-final.png',
-      '/assets/game design assets/WRAITH-final_v2.png',
     ],
     thumbnail: '/assets/game design assets/Revised Card Prototype.png',
     icon: '🎲',
+  },
+  {
+    id: 'character-hillbilly',
+    title: 'Hillbilly',
+    description: 'Character illustration for the Entity Realm TTRPG showcase.',
+    role: 'Character Illustrator',
+    category: 'Game Design',
+    tags: ['Illustrator', 'Character Design', 'TTRPG'],
+    images: ['/assets/game design assets/HILLBILLY.png'],
+    icon: '🪓',
+  },
+  {
+    id: 'character-huntress',
+    title: 'Huntress',
+    description: 'Character illustration for the Entity Realm TTRPG showcase.',
+    role: 'Character Illustrator',
+    category: 'Game Design',
+    tags: ['Illustrator', 'Character Design', 'TTRPG'],
+    images: ['/assets/game design assets/HUNTRESS.png'],
+    icon: '🏹',
+  },
+  {
+    id: 'character-nurse',
+    title: 'Nurse',
+    description: 'Character illustration for the Entity Realm TTRPG showcase.',
+    role: 'Character Illustrator',
+    category: 'Game Design',
+    tags: ['Illustrator', 'Character Design', 'TTRPG'],
+    images: ['/assets/game design assets/NURSE.png'],
+    icon: '💉',
+  },
+  {
+    id: 'character-the-hag',
+    title: 'The Hag',
+    description: 'Character illustration for the Entity Realm TTRPG showcase.',
+    role: 'Character Illustrator',
+    category: 'Game Design',
+    tags: ['Illustrator', 'Character Design', 'TTRPG'],
+    images: ['/assets/game design assets/THE-HAG.png'],
+    icon: '🧙',
+  },
+  {
+    id: 'character-trapper',
+    title: 'Trapper',
+    description: 'Character illustration for the Entity Realm TTRPG showcase.',
+    role: 'Character Illustrator',
+    category: 'Game Design',
+    tags: ['Illustrator', 'Character Design', 'TTRPG'],
+    images: ['/assets/game design assets/TRAPPER-final.png'],
+    icon: '🪤',
+  },
+  {
+    id: 'character-wraith',
+    title: 'Wraith',
+    description: 'Character illustration for the Entity Realm TTRPG showcase.',
+    role: 'Character Illustrator',
+    category: 'Game Design',
+    tags: ['Illustrator', 'Character Design', 'TTRPG'],
+    images: ['/assets/game design assets/WRAITH-final_v2.png'],
+    icon: '👻',
+  },
+  {
+    id: 'flipbook-ttrpg',
+    title: 'TTRPG Flipbook',
+    description: 'A tabletop role-playing game book designed with immersive lore and gameplay mechanics.',
+    role: 'Game Designer & Layout Artist',
+    category: 'Game Design',
+    tags: ['TTRPG', 'Layout Design', 'Game Design'],
+    images: [],
+    flipbookEmbed: 'https://online.fliphtml5.com/czivl/qipi/',
+    link: 'https://online.fliphtml5.com/czivl/qipi/',
+    icon: '📖',
+  },
+  {
+    id: 'cyndikato-rulebook',
+    title: 'Cyndikato Rulebook',
+    description: 'Complete rulebook for the Cyndikato tabletop card game with gameplay instructions and lore.',
+    role: 'Game Designer & Layout Artist',
+    category: 'Game Design',
+    tags: ['Rulebook', 'Layout Design', 'Game Design'],
+    images: [],
+    flipbookEmbed: 'https://online.fliphtml5.com/czivl/zgcp/',
+    link: 'https://online.fliphtml5.com/czivl/zgcp/',
+    icon: '📕',
   },
 ];
 
@@ -170,8 +265,8 @@ const graphicDesignProjects: PortfolioProject[] = [
   },
   {
     id: 'tabletop-design',
-    title: 'TableTop Design',
-    description: 'Board game visual design and layout for tabletop gaming.',
+    title: 'Cyndikato Game Banner Design',
+    description: 'Board game banner design and layout for tabletop gaming.',
     role: 'Graphic Designer & Illustrator',
     category: 'Graphic Design',
     tags: ['Illustrator', 'Layout Design'],
@@ -252,6 +347,50 @@ const logoDesignProjects: PortfolioProject[] = [
 
 const motionGraphicsProjects: PortfolioProject[] = [
   {
+    id: 'boy-animation',
+    title: 'Boy Animation',
+    description: 'Character animation featuring expressive movement and fluid motion design.',
+    role: 'Motion Designer & Animator',
+    category: 'Motion Graphics',
+    tags: ['After Effects', 'Animation', 'Character Design'],
+    images: [],
+    videoEmbed: 'https://www.youtube.com/embed/iQ1K4wyLM5U?autoplay=1&mute=1&loop=1&playlist=iQ1K4wyLM5U&controls=0&showinfo=0&rel=0&modestbranding=1',
+    icon: '🧑',
+  },
+  {
+    id: 'text-animation',
+    title: 'Text Animation',
+    description: 'Kinetic typography and text-based motion graphics with dynamic transitions.',
+    role: 'Motion Designer',
+    category: 'Motion Graphics',
+    tags: ['After Effects', 'Typography', 'Motion'],
+    images: [],
+    videoEmbed: 'https://www.youtube.com/embed/ZVOHSDCpDzk?autoplay=1&mute=1&loop=1&playlist=ZVOHSDCpDzk&controls=0&showinfo=0&rel=0&modestbranding=1',
+    icon: '✍️',
+  },
+  {
+    id: 'girl-animation',
+    title: 'Girl Animation',
+    description: 'Stylized character animation with smooth keyframe transitions.',
+    role: 'Motion Designer & Animator',
+    category: 'Motion Graphics',
+    tags: ['After Effects', 'Animation', 'Character Design'],
+    images: [],
+    videoEmbed: 'https://www.youtube.com/embed/Tn-KmFhRdao?autoplay=1&mute=1&loop=1&playlist=Tn-KmFhRdao&controls=0&showinfo=0&rel=0&modestbranding=1',
+    icon: '👧',
+  },
+  {
+    id: 'solar-system-animation',
+    title: 'Solar System Animation',
+    description: 'Educational motion graphics depicting planetary orbits and celestial mechanics.',
+    role: 'Motion Designer & Animator',
+    category: 'Motion Graphics',
+    tags: ['After Effects', 'Animation', 'Educational'],
+    images: [],
+    videoEmbed: 'https://www.youtube.com/embed/hstRn0ovLtQ?autoplay=1&mute=1&loop=1&playlist=hstRn0ovLtQ&controls=0&showinfo=0&rel=0&modestbranding=1',
+    icon: '🪐',
+  },
+  {
     id: 'trace-of-mango',
     title: 'Trace of Mango',
     description: 'Frame-by-frame animation storyboard and motion graphics sequence.',
@@ -271,7 +410,30 @@ const motionGraphicsProjects: PortfolioProject[] = [
       '/assets/motion graphics/trace of mango/dawg_2520copy-bwDzI.png',
     ],
     thumbnail: '/assets/motion graphics/trace of mango/3.png',
+    videoEmbed: 'https://www.youtube.com/embed/OOzlys6PXHY?autoplay=1&mute=1&loop=1&playlist=OOzlys6PXHY&controls=0&showinfo=0&rel=0&modestbranding=1',
     icon: '🥭',
+  },
+  {
+    id: 'taskly-prototype',
+    title: 'Taskly Prototype',
+    description: 'Interactive UI/UX prototype walkthrough for a task management application.',
+    role: 'UI/UX Designer & Prototyper',
+    category: 'Prototyping',
+    tags: ['Figma', 'Prototyping', 'UI/UX'],
+    images: [],
+    videoEmbed: 'https://www.youtube.com/embed/oRhv4HNa5Hc?autoplay=1&mute=1&loop=1&playlist=oRhv4HNa5Hc&controls=0&showinfo=0&rel=0&modestbranding=1',
+    icon: '📋',
+  },
+  {
+    id: 'kiddie-coin',
+    title: 'Kiddie Coin',
+    description: 'Animated prototype for a kid-friendly financial literacy app.',
+    role: 'UI/UX Designer & Prototyper',
+    category: 'Prototyping',
+    tags: ['Figma', 'Prototyping', 'UI/UX'],
+    images: [],
+    videoEmbed: 'https://www.youtube.com/embed/6ZDEWDWmg6I?autoplay=1&mute=1&loop=1&playlist=6ZDEWDWmg6I&controls=0&showinfo=0&rel=0&modestbranding=1',
+    icon: '🪙',
   },
 ];
 
@@ -294,6 +456,28 @@ const productDesignProjects: PortfolioProject[] = [
   },
 ];
 
+// ─── ANDROID APPLICATION (assets/android application/) ──────────────────────
+
+const androidProjects: PortfolioProject[] = [
+  {
+    id: 'android-app',
+    title: 'Android Application',
+    description: 'Mobile application UI screens designed and developed for Android platform.',
+    role: 'Frontend Developer',
+    category: 'Android App',
+    tags: ['Android', 'Mobile', 'UI/UX'],
+    images: [
+      '/assets/android application/704670991_980554504804597_2818027696428540658_n.jpg',
+      '/assets/android application/704613836_1003996308640554_3638036877747795353_n.jpg',
+      '/assets/android application/704652180_1355812939700458_8330021027224282269_n.jpg',
+      '/assets/android application/708047921_1298382698580847_2042323893952759863_n.jpg',
+      '/assets/android application/708312053_2037191230340803_8044312988572673163_n.jpg',
+    ],
+    thumbnail: '/assets/android application/704670991_980554504804597_2818027696428540658_n.jpg',
+    icon: '📱',
+  },
+];
+
 // ─── COMBINED EXPORT ────────────────────────────────────────────────────────
 
 export const ALL_PROJECTS: PortfolioProject[] = [
@@ -302,6 +486,7 @@ export const ALL_PROJECTS: PortfolioProject[] = [
   ...graphicDesignProjects,
   ...logoDesignProjects,
   ...motionGraphicsProjects,
+  ...androidProjects,
   ...productDesignProjects,
 ];
 
@@ -312,6 +497,8 @@ export const CATEGORIES = [
   'Graphic Design',
   'Logo Design',
   'Motion Graphics',
+  'Prototyping',
+  'Android App',
   'Product Design',
 ] as const;
 
