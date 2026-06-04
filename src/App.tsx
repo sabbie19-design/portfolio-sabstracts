@@ -71,12 +71,58 @@ function AppContent() {
           </div>
         </div>
 
-        {/* Footer path */}
-        <div className="px-4 sm:px-8 max-w-7xl mx-auto mt-4 mb-8">
-          <p className="font-pixel text-sm text-center uppercase tracking-wider text-gray-600">
-            ▸ C:\Users\Sabstracts\portfolio\ — session active ✓
-          </p>
-        </div>
+        {/* Footer */}
+        <footer className="px-4 sm:px-8 max-w-7xl mx-auto mt-4 mb-8">
+          <div className="border-4 border-black bg-[#1a1a2e] shadow-brutal-lg rounded-xl px-6 py-8 text-white">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              {/* Brand */}
+              <div className="text-center md:text-left">
+                <p className="font-paytone text-2xl tracking-widest text-[#AEE1FF] star-stroke">SABSTRACTS</p>
+                <p className="font-comic text-sm text-white/60 mt-1">Lorraine Isabel Cabigon</p>
+                <p className="font-pixel text-xs text-white/40 mt-1 uppercase tracking-wider">Graphic Designer · UI/UX · QA · PM</p>
+              </div>
+
+              {/* Links */}
+              <div className="flex flex-wrap justify-center gap-3">
+                <a
+                  href="https://flowcv.com/resume/uh1q69h4rb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-[#FF5E5E] border-2 border-white/30 font-pixel text-xs uppercase tracking-wider text-white hover:bg-[#FF7A7A] transition-colors shadow-[2px_2px_0_rgba(255,255,255,0.2)]"
+                >
+                  📄 View CV
+                </a>
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-white/10 border-2 border-white/20 font-pixel text-xs uppercase tracking-wider text-white hover:bg-white/20 transition-colors"
+                >
+                  ⚡ GitHub
+                </a>
+                <a
+                  href="mailto:sabstracts@gmail.com"
+                  className="px-4 py-2 bg-white/10 border-2 border-white/20 font-pixel text-xs uppercase tracking-wider text-white hover:bg-white/20 transition-colors"
+                >
+                  💌 Email
+                </a>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="border-t-2 border-dashed border-white/20 my-6" />
+
+            {/* Bottom bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-white/40">
+              <p className="font-pixel text-xs uppercase tracking-wider">
+                ▸ C:\Users\Sabstracts\portfolio\ — session active ✓
+              </p>
+              <p className="font-pixel text-xs uppercase tracking-wider">
+                © {new Date().getFullYear()} Sabstracts · Built with 💖
+              </p>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );

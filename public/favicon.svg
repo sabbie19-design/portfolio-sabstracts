@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <!-- Chrome/metallic gradient for S -->
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FFB5D8"/>
+      <stop offset="25%"  stop-color="#FFFFFF"/>
+      <stop offset="50%"  stop-color="#D4C4FF"/>
+      <stop offset="75%"  stop-color="#AEE1FF"/>
+      <stop offset="100%" stop-color="#FF94C7"/>
+    </linearGradient>
+    <!-- Glassy background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#1a1a2e"/>
+      <stop offset="60%"  stop-color="#16213e"/>
+      <stop offset="100%" stop-color="#0f0e2a"/>
+    </linearGradient>
+    <!-- Inner glow for S stroke -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark navy background -->
+  <rect width="64" height="64" rx="12" fill="url(#bgGrad)"/>
+
+  <!-- Outer pixel border — Y2K dashed feel -->
+  <rect x="2" y="2" width="60" height="60" rx="10" stroke="#AEE1FF" stroke-width="1.5" stroke-dasharray="4 2" fill="none" opacity="0.5"/>
+  <!-- Inner highlight rim -->
+  <rect x="4" y="4" width="56" height="56" rx="8" stroke="#FFFFFF" stroke-width="0.5" fill="none" opacity="0.15"/>
+
+  <!-- ★ Star sparkles — Y2K signature -->
+  <!-- Top-right sparkle -->
+  <path d="M50 10 L51.2 13.5 L55 14 L52.2 16.5 L53 20 L50 18 L47 20 L47.8 16.5 L45 14 L48.8 13.5 Z"
+        fill="#FFD166" opacity="0.9"/>
+  <!-- Bottom-left mini sparkle -->
+  <path d="M13 46 L13.8 48.2 L16 49 L13.8 49.8 L13 52 L12.2 49.8 L10 49 L12.2 48.2 Z"
+        fill="#FFB5D8" opacity="0.85"/>
+  <!-- Top-left tiny dot star -->
+  <circle cx="12" cy="13" r="1.5" fill="#D4C4FF" opacity="0.9"/>
+  <line x1="12" y1="10" x2="12" y2="16" stroke="#D4C4FF" stroke-width="0.8" opacity="0.6"/>
+  <line x1="9"  y1="13" x2="15" y2="13" stroke="#D4C4FF" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- S letterform — chrome metallic stroke -->
+  <!-- Top arc -->
+  <path d="M20 23 Q20 15 32 15 Q43 15 43 23 Q43 30 32 32"
+        stroke="url(#chrome)" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+  <!-- Bottom arc -->
+  <path d="M32 32 Q21 34 21 42 Q21 49 32 49 Q43 49 43 42"
+        stroke="url(#chrome)" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+  <!-- White highlight sheen on S -->
+  <path d="M22 20 Q24 16 32 15.5"
+        stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.55"/>
+
+  <!-- Pixel accent squares — bottom-right -->
+  <rect x="50" y="50" width="3" height="3" fill="#AEE1FF" rx="0.5" opacity="0.8"/>
+  <rect x="54" y="50" width="3" height="3" fill="#FF94C7" rx="0.5" opacity="0.6"/>
+  <rect x="50" y="54" width="3" height="3" fill="#D4C4FF" rx="0.5" opacity="0.6"/>
+
+  <!-- Tiny floating dot accents -->
+  <circle cx="8"  cy="32" r="1"   fill="#AEE1FF" opacity="0.5"/>
+  <circle cx="56" cy="32" r="1"   fill="#FFB5D8" opacity="0.5"/>
+</svg>

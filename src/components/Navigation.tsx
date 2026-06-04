@@ -20,9 +20,42 @@ export function Navigation() {
 
   return (
     <nav className="flex items-end gap-[2px] px-4 sm:px-8 max-w-7xl mx-auto pt-4" aria-label="Main navigation">
-      {/* Brand / Logo — sits before the tabs */}
-      <div className="hidden sm:flex items-center mr-4 mb-[4px]">
-        <span className="font-paytone text-lg tracking-widest star-stroke select-none">SABSTRACTS</span>
+      {/* Brand / Logo — Y2K styled logo.png */}
+      <div className="hidden sm:flex items-center mr-4 mb-[4px] select-none">
+        <div className="relative group">
+          {/* Glow halo behind logo */}
+          <div
+            className="absolute inset-0 rounded-lg opacity-60 blur-md group-hover:opacity-90 transition-opacity duration-300 pointer-events-none"
+            style={{
+              background: 'linear-gradient(135deg, #FFB5D8, #D4C4FF, #AEE1FF)',
+            }}
+          />
+          {/* Pixel border frame */}
+          <div
+            className="relative border-[3px] border-black rounded-lg overflow-hidden"
+            style={{
+              boxShadow: '3px 3px 0px #000, inset 0 0 0 1px rgba(255,255,255,0.3)',
+            }}
+          >
+            <img
+              src="/logo.png"
+              alt="Sabstracts"
+              className="w-10 h-10 object-contain block"
+              style={{ imageRendering: 'pixelated' }}
+            />
+            {/* Chrome sheen sweep on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+          </div>
+
+          {/* Y2K corner sparkle */}
+          <span
+            className="absolute -top-2 -right-2 text-[10px] leading-none pointer-events-none animate-pulse"
+            aria-hidden="true"
+            style={{ color: '#FFD166', textShadow: '0 0 4px #FFD166' }}
+          >
+            ✦
+          </span>
+        </div>
       </div>
 
       {NAV_ITEMS.map((item) => {
@@ -61,12 +94,12 @@ export function Navigation() {
         );
       })}
 
-      {/* CV Button */}
+      {/* CV Button — highlighted to attract employers */}
       <a
-        href="/assets/Lorraine_Isabel_Cabigon_CV.pdf"
+        href="https://flowcv.com/resume/uh1q69h4rbws"
         target="_blank"
         rel="noopener noreferrer"
-        className="no-underline ml-auto"
+        className="no-underline ml-auto group"
       >
         <div
           className="
@@ -74,14 +107,19 @@ export function Navigation() {
             px-3 py-2 sm:px-5 sm:py-2.5
             border-4 border-black rounded-t-lg
             transition-all duration-150 select-none
-            unified-tab--inactive translate-y-[8px] hover:translate-y-[6px]
+            translate-y-[8px] group-hover:translate-y-[4px]
+            relative overflow-hidden
           "
           style={{
-            backgroundColor: '#FFE4A0',
-            boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.3), inset -1px -1px 0px rgba(0,0,0,0.2), 0 2px 0 rgba(0,0,0,0.3)',
+            backgroundColor: '#FF5E5E',
+            boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.4), 4px 4px 0px rgba(0,0,0,1)',
           }}
         >
-          <span className="text-black/70 whitespace-nowrap">📄 VIEW CV</span>
+          {/* Shimmer sweep */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 pointer-events-none" />
+          <span className="relative z-10 text-white whitespace-nowrap font-bold drop-shadow-sm">
+            📄 VIEW CV ✦
+          </span>
         </div>
       </a>
     </nav>

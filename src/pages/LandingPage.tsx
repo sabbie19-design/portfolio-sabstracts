@@ -37,10 +37,10 @@ const CAPABILITIES = [
     color: 'bg-[#B2F0E6]',
   },
   {
-    icon: '💻',
+    icon: '🎨',
     folder: '📁',
-    title: 'Web & App Development',
-    desc: 'Bringing designs to life through frontend coding and interactive application development.',
+    title: 'Graphic Design',
+    desc: 'Crafting visually compelling posters, layouts, and digital artwork with a keen eye for composition and color.',
     color: 'bg-[#D4C4FF]',
   },
 ];
@@ -102,7 +102,7 @@ export default function LandingPage() {
                   Design 🎨
                 </span>
                 <span className="font-pixel text-xl tracking-widest underline uppercase text-gray-700">
-                  Code 💻
+                  Prototype 💻
                 </span>
                 <span className="font-pixel text-xl tracking-widest  underline uppercase text-[#256fb2]">
                   Strategy 
@@ -255,23 +255,14 @@ export default function LandingPage() {
           
           <h2 className="font-paytone text-4xl mb-8 star-stroke">DEV_TOOLKIT</h2>
           <SkillsMarquee direction="right" skills={[
-            { color: 'bg-[#61DAFB]', letter: 'Re', title: 'React' },
-            { color: 'bg-[#3178C6]', letter: 'Ts', title: 'TypeScript' },
             { color: 'bg-[#38B2AC]', letter: 'Tw', title: 'Tailwind' },
-            { color: 'bg-[#FF9A00]', letter: 'Py', title: 'Python' },
             { color: 'bg-[#3DDC84]', letter: 'As', title: 'Android Studio' },
             { color: 'bg-[#5C2D91]', letter: 'Vs', title: 'Visual Studio' },
-            { color: 'bg-[#F05032]', letter: 'Gt', title: 'Git' },
             { color: 'bg-[#181717]', letter: 'Gh', title: 'GitHub' },
             { color: 'bg-[#000000]', letter: 'Vc', title: 'Vercel' },
-            { color: 'bg-[#61DAFB]', letter: 'Re', title: 'React' },
-            { color: 'bg-[#3178C6]', letter: 'Ts', title: 'TypeScript' },
             { color: 'bg-[#38B2AC]', letter: 'Tw', title: 'Tailwind' },
-            { color: 'bg-[#000000]', letter: 'Nx', title: 'Next.js' },
-            { color: 'bg-[#FF9A00]', letter: 'Py', title: 'Python' },
             { color: 'bg-[#3DDC84]', letter: 'As', title: 'Android Studio' },
             { color: 'bg-[#5C2D91]', letter: 'Vs', title: 'Visual Studio' },
-            { color: 'bg-[#F05032]', letter: 'Gt', title: 'Git' },
             { color: 'bg-[#181717]', letter: 'Gh', title: 'GitHub' },
             { color: 'bg-[#000000]', letter: 'Vc', title: 'Vercel' },
           ]} />
