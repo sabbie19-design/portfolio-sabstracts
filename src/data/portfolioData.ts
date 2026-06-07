@@ -306,6 +306,17 @@ const graphicDesignProjects: PortfolioProject[] = [
     ],
     icon: '🖼️',
   },
+  {
+    id: 'travel-poster',
+    title: 'Travel Poster',
+    description: 'Vibrant travel-themed poster design with rich color palettes and evocative scenery.',
+    role: 'Graphic Designer',
+    category: 'Graphic Design',
+    tags: ['Photoshop', 'Illustration', 'Print'],
+    images: ['/assets/graphic design/travel-poster.png'],
+    thumbnail: '/assets/graphic design/travel-poster.png',
+    icon: '✈️',
+  },
 ];
 
 // ─── LOGO DESIGN (assets/logo design/) ──────────────────────────────────────
@@ -449,10 +460,20 @@ const productDesignProjects: PortfolioProject[] = [
     tags: ['Photoshop', 'Packaging', 'Mockup'],
     images: [
       '/assets/product design/mockup-package-and-product.jpg',
-      '/assets/product design/Product-Poster.jpg',
     ],
     thumbnail: '/assets/product design/mockup-package-and-product.jpg',
     icon: '📦',
+  },
+  {
+    id: 'product-poster',
+    title: 'Product Poster',
+    description: 'Eye-catching product promotional poster with clean layout and strong visual hierarchy.',
+    role: 'Graphic Designer',
+    category: 'Product Design',
+    tags: ['Photoshop', 'Print', 'Marketing'],
+    images: ['/assets/product design/Product-Poster.jpg'],
+    thumbnail: '/assets/product design/Product-Poster.jpg',
+    icon: '🗓️',
   },
 ];
 
@@ -481,13 +502,15 @@ const androidProjects: PortfolioProject[] = [
 // ─── COMBINED EXPORT ────────────────────────────────────────────────────────
 
 export const ALL_PROJECTS: PortfolioProject[] = [
+  // Product Poster first
+  ...productDesignProjects.filter(p => p.id === 'product-poster'),
+  ...graphicDesignProjects,
   ...websiteProjects,
   ...gameDesignProjects,
-  ...graphicDesignProjects,
   ...logoDesignProjects,
   ...motionGraphicsProjects,
   ...androidProjects,
-  ...productDesignProjects,
+  ...productDesignProjects.filter(p => p.id !== 'product-poster'),
 ];
 
 export const CATEGORIES = [

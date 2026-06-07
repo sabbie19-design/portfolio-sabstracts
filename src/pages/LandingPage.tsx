@@ -45,13 +45,21 @@ const CAPABILITIES = [
   },
 ];
 
-const FEATURED_PROJECT_IDS = ['mathpulse-ai', 'librowse', 'its-our-studio'];
+const FEATURED_PROJECT_IDS = ['travel-poster', 'cyndikato-rulebook', 'its-our-studio', 'product-poster'];
 
 // Projects to showcase in the hero carousel
 const CAROUSEL_PROJECTS = ALL_PROJECTS.filter(p =>
-  ['mathpulse-ai', 'librowse', 'its-our-studio', 'arta-css', 'trace-of-mango', 'cyndikato-rulebook', 'flipbook-ttrpg'].includes(p.id)
+  ['travel-poster', 'coffee-poster', 'movie-poster', 'tabletop-design', 'product-poster', 'mathpulse-ai', 'librowse', 'its-our-studio', 'arta-css', 'trace-of-mango'].includes(p.id)
   && (p.thumbnail || p.images.length > 0)
-);
+).sort((a, b) => {
+  // Graphic design first in the carousel
+  const graphicFirst = ['travel-poster', 'coffee-poster', 'movie-poster', 'tabletop-design', 'product-poster'];
+  const aIsGraphic = graphicFirst.includes(a.id);
+  const bIsGraphic = graphicFirst.includes(b.id);
+  if (aIsGraphic && !bIsGraphic) return -1;
+  if (!aIsGraphic && bIsGraphic) return 1;
+  return graphicFirst.indexOf(a.id) - graphicFirst.indexOf(b.id);
+});
 
 export default function LandingPage() {
   const skillsRef = useRef<HTMLDivElement>(null);
@@ -228,6 +236,49 @@ export default function LandingPage() {
         </WindowModal>
       </motion.div>
 
+      {/* ─── FEATURED PROJECTS ─── */}
+      <motion.div {...fadeSlideUp} className="mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {ALL_PROJECTS.filter(p => FEATURED_PROJECT_IDS.includes(p.id))
+            .sort((a, b) => FEATURED_PROJECT_IDS.indexOf(a.id) - FEATURED_PROJECT_IDS.indexOf(b.id))
+            .map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ACCESS FULL ARCHIVE BUTTON */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="flex justify-center mt-12"
+        >
+          <Link to="/projects">
+            <motion.button
+              whileHover={{ scale: 1.05, rotate: [0, -1, 1, 0] }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-[#FF94C7] border-4 border-black shadow-brutal font-pixel text-xl sm:text-2xl uppercase tracking-widest text-black hover:bg-[#FFB5D8] transition-colors relative overflow-hidden group"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <span className="text-2xl">📂</span>
+                ACCESS_FULL_ARCHIVE.exe
+                <span className="text-2xl">💾</span>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            </motion.button>
+          </Link>
+        </motion.div>
+      </motion.div>
+
       {/* ─── SKILLS SECTION ─── */}
       <motion.div {...fadeSlideUp} className="mb-8">
         <div ref={skillsRef} className="bg-white/60 backdrop-blur-sm border-4 border-black shadow-brutal p-6 sm:p-10 rounded-xl relative overflow-hidden">
@@ -267,47 +318,6 @@ export default function LandingPage() {
             { color: 'bg-[#000000]', letter: 'Vc', title: 'Vercel' },
           ]} />
         </div>
-      </motion.div>
-
-      {/* ─── FEATURED PROJECTS ─── */}
-      <motion.div {...fadeSlideUp} className="mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {ALL_PROJECTS.filter(p => FEATURED_PROJECT_IDS.includes(p.id)).map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-            >
-              <ProjectCard project={project} />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* ACCESS FULL ARCHIVE BUTTON */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex justify-center mt-12"
-        >
-          <Link to="/projects">
-            <motion.button
-              whileHover={{ scale: 1.05, rotate: [0, -1, 1, 0] }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-[#FF94C7] border-4 border-black shadow-brutal font-pixel text-xl sm:text-2xl uppercase tracking-widest text-black hover:bg-[#FFB5D8] transition-colors relative overflow-hidden group"
-            >
-              <span className="relative z-10 flex items-center gap-3">
-                <span className="text-2xl">📂</span>
-                ACCESS_FULL_ARCHIVE.exe
-                <span className="text-2xl">💾</span>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </motion.button>
-          </Link>
-        </motion.div>
       </motion.div>
 
       {/* Footer status */}
