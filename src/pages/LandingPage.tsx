@@ -86,12 +86,13 @@ export default function LandingPage() {
         <div className="flex flex-col lg:flex-row gap-8 items-start relative">
           <WindowModal title="ABOUT_ME.exe" barColor="bg-[#FF94C7]" icon="🦋" className="flex-1 w-full relative z-10">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
-              {/* Profile picture inside the container */}
+              {/* Profile picture temporarily removed:
               <img
                 src="/assets/sab-pic.png"
                 alt="Sabstracts"
                 className="w-32 h-32 sm:w-40 sm:h-40 border-4 border-black shadow-brutal object-contain shrink-0"
               />
+              */}
               <div className="flex-1">
                 <h1 className="font-paytone text-4xl sm:text-6xl text-black mb-3 uppercase leading-tight">
                   Hello! I'm Sab. ✩
