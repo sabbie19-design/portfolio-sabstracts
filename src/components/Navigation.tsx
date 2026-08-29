@@ -10,16 +10,16 @@ import { NavLink, useLocation } from 'react-router-dom';
  */
 
 const NAV_ITEMS = [
-  { path: '/', label: '01_INTRO.exe', color: '#AEE1FF', mutedColor: '#8BBDD4' },
-  { path: '/projects', label: '02_PROJECTS.zip', color: '#FFB5D8', mutedColor: '#D4899F' },
-  { path: '/contact', label: '03_CONTACT.bat', color: '#D4C4FF', mutedColor: '#A898CC' },
+  { path: '/', label: '01_INTRO.exe', shortLabel: '01_INTRO', color: '#AEE1FF', mutedColor: '#8BBDD4' },
+  { path: '/projects', label: '02_PROJECTS.zip', shortLabel: '02_PROJECTS', color: '#FFB5D8', mutedColor: '#D4899F' },
+  { path: '/contact', label: '03_CONTACT.bat', shortLabel: '03_CONTACT', color: '#D4C4FF', mutedColor: '#A898CC' },
 ];
 
 export function Navigation() {
   const location = useLocation();
 
   return (
-    <nav className="flex items-end gap-[2px] px-4 sm:px-8 max-w-7xl mx-auto pt-4" aria-label="Main navigation">
+    <nav className="flex items-end gap-[2px] sm:gap-[4px] px-2 sm:px-8 max-w-7xl mx-auto pt-4 overflow-x-auto no-scrollbar sm:overflow-x-visible" aria-label="Main navigation">
       {/* Brand / Logo — Y2K styled logo.png */}
       <div className="hidden sm:flex items-center mr-4 mb-[4px] select-none">
         <div className="relative group">
@@ -65,14 +65,14 @@ export function Navigation() {
           <NavLink
             key={item.path}
             to={item.path}
-            className="no-underline"
+            className="no-underline shrink-0 sm:shrink"
             aria-current={isActive ? 'page' : undefined}
           >
             <div
               className={`
-                unified-tab font-paytone text-[10px] sm:text-xs uppercase tracking-wider
-                px-3 py-2 sm:px-5 sm:py-2.5
-                border-4 border-black rounded-t-lg
+                unified-tab font-paytone text-[9px] min-[380px]:text-[10px] sm:text-xs uppercase tracking-wider
+                px-2 py-1.5 min-[380px]:px-2.5 min-[380px]:py-2 sm:px-5 sm:py-2.5
+                border-2 sm:border-4 border-black rounded-t-lg
                 transition-all duration-150 select-none
                 ${isActive
                   ? 'unified-tab--active border-b-0 relative z-20 translate-y-[4px]'
@@ -87,7 +87,8 @@ export function Navigation() {
               }}
             >
               <span className={`${isActive ? 'text-black' : 'text-black/70'} whitespace-nowrap`}>
-                {item.label}
+                <span className="hidden min-[480px]:inline">{item.label}</span>
+                <span className="min-[480px]:hidden">{item.shortLabel}</span>
               </span>
             </div>
           </NavLink>
@@ -99,26 +100,27 @@ export function Navigation() {
         href="https://flowcv.com/resume/uh1q69h4rbws"
         target="_blank"
         rel="noopener noreferrer"
-        className="no-underline ml-auto group"
+        className="no-underline ml-auto group shrink-0"
       >
         <div
           className="
-            unified-tab font-paytone text-[10px] sm:text-xs uppercase tracking-wider
-            px-3 py-2 sm:px-5 sm:py-2.5
-            border-4 border-black rounded-t-lg
+            unified-tab font-paytone text-[9px] min-[380px]:text-[10px] sm:text-xs uppercase tracking-wider
+            px-2 py-1.5 min-[380px]:px-2.5 min-[380px]:py-2 sm:px-5 sm:py-2.5
+            border-2 sm:border-4 border-black rounded-t-lg
             transition-all duration-150 select-none
             translate-y-[8px] group-hover:translate-y-[4px]
             relative overflow-hidden
           "
           style={{
             backgroundColor: '#FF5E5E',
-            boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.4), 4px 4px 0px rgba(0,0,0,1)',
+            boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.4), 2px 2px 0px rgba(0,0,0,1)',
           }}
         >
           {/* Shimmer sweep */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 pointer-events-none" />
           <span className="relative z-10 text-white whitespace-nowrap font-bold drop-shadow-sm">
-            📄 VIEW CV ✦
+            <span className="hidden min-[480px]:inline">📄 VIEW CV ✦</span>
+            <span className="min-[480px]:hidden">📄 CV ✦</span>
           </span>
         </div>
       </a>
